@@ -1,18 +1,15 @@
 import { useQuery } from '@apollo/client/react'
 import { ME, ALL_BOOKS } from '../queries'
 
-const Recommend = ({ show }) => {
-  const meResult = useQuery(ME)
+const Recommend = () => {
+  const meResult = useQuery(ME, { fetchPolicy: 'network-only' })
   const favoriteGenre = meResult.data?.me?.favoriteGenre
 
   const booksResult = useQuery(ALL_BOOKS, {
     variables: { genre: favoriteGenre },
     skip: !favoriteGenre,
+    fetchPolicy: 'cache-and-network',
   })
-
-  if (!show) {
-    return null
-  }
 
   if (meResult.loading) {
     return <div>loading...</div>

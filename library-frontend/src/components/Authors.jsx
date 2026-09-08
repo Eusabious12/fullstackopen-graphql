@@ -54,8 +54,7 @@ const Authors = ({ show, token }) => {
           <form onSubmit={submit}>
             <div>
               name
-              <select value={name} onChange={({ target }) => setName(target.value)}>
-                <option value="" disabled>
+              <select name="name" value={name} onChange={({ target }) => setName(target.value)}>                <option value="" disabled>
                   -- choose author --
                 </option>
                 {authors.map((a) => (
@@ -65,9 +64,10 @@ const Authors = ({ show, token }) => {
                 ))}
               </select>
             </div>
-            <div>
-              born
+                        <div>
+              <label htmlFor="born">born</label>
               <input
+                id="born"
                 type="number"
                 value={born}
                 onChange={({ target }) => setBorn(target.value)}

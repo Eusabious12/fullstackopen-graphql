@@ -14,7 +14,7 @@ const LoginForm = ({ setToken, setError, setPage }) => {
       setPage('authors')
     },
     onError: (error) => {
-      setError(error.message)
+      setError('login failed: ' + error.message)
     },
   })
 

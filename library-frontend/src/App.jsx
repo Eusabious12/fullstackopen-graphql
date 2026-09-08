@@ -39,10 +39,10 @@ const App = () => {
         )}
       </div>
 
-      <Authors show={page === 'authors'} token={token} setError={notify} />
+      <Authors show={page === 'authors'} token={token} />
       <Books show={page === 'books'} />
       <NewBook show={page === 'add'} setError={notify} />
-      <Recommend show={page === 'recommend'} />
+      {page === 'recommend' && <Recommend />}
       {page === 'login' && (
         <LoginForm setToken={setToken} setError={notify} setPage={setPage} />
       )}
